@@ -18,6 +18,7 @@ workflows:
               only:
                 - master
                 - integration
+                - jira-102
 
 
 jobs:
