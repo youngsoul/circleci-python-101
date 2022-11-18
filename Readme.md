@@ -2,6 +2,10 @@
 
 Simple a repo of code to start working with and understanding CircleCI
 
+# Example:
+[![youngsoul](https://circleci.com/gh/youngsoul/circleci-python-101.svg?style=svg)](https://app.circleci.com/pipelines/github/youngsoul/circleci-python-101)
+
+
 ## Resources
 
 https://circleci.com/docs/language-python/
