@@ -6,3 +6,7 @@ def to_upper(p1:str):
 
 def utc_to_central():
     return arrow.utcnow().to("US/Central")
+
+
+def to_lower(p1:str):
+    return p1.lower()
