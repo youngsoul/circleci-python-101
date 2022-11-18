@@ -17,3 +17,6 @@ https://github.com/zmarkan/circleci_101
 https://www.youtube.com/watch?v=0Ng2622UBe8
 
 https://circleci.com/docs/using-branch-filters/
+
+
+https://circleci.com/blog/conditional-pipeline-execution/

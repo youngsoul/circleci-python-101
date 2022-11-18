@@ -12,17 +12,17 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
     jobs:
-      - build-and-test:
+      - build-and-test-job:
           filters:
             branches:
               only:
                 - master
                 - integration
                 - jira-102
-
+      - deploy-job
 
 jobs:
-  build-and-test:  # This is the name of the job, feel free to change it to better match what you're trying to do!
+  build-and-test-job:  # This is the name of the job, feel free to change it to better match what you're trying to do!
     # These next lines defines a docker executors: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from dockerhub or use one of the convenience images from CircleCI's Developer Hub
     # A list of available CircleCI docker convenience images are available here: https://circleci.com/developer/images/image/cimg/python
@@ -51,3 +51,12 @@ jobs:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: pytest tests/
+
+    deploy-job:
+      - when:
+          condition:
+            or:
+              - equal: [ master, << pipeline.git.branch >> ]
+              - equal: [ integration, << pipeline.git.branch >> ]
+          steps:
+            - run: echo "building master and integration"
