@@ -52,11 +52,11 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: pytest tests/
 
-    deploy-job:
-      - when:
-          condition:
-            or:
-              - equal: [ master, << pipeline.git.branch >> ]
-              - equal: [ integration, << pipeline.git.branch >> ]
-          steps:
-            - run: echo "building master and integration"
+  deploy-job:
+    - when:
+        condition:
+          or:
+            - equal: [ master, << pipeline.git.branch >> ]
+            - equal: [ integration, << pipeline.git.branch >> ]
+        steps:
+          - run: echo "building master and integration"
