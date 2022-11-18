@@ -24,7 +24,7 @@ workflows:
         - equal: [ master, << pipeline.git.branch >> ]
         - equal: [ integration, << pipeline.git.branch >> ]
     jobs:
-      - build-and-test-job:
+      - build-and-test-job
       - deploy-job
 
 jobs:
