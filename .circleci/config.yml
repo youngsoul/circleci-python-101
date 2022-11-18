@@ -59,5 +59,7 @@ jobs:
           command: pytest tests/
 
   deploy-job:
+    docker:
+      - image: cimg/python:3.10.5
     steps:
       - echo "I would deploy here"
