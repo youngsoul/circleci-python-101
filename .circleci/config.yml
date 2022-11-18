@@ -54,9 +54,8 @@ jobs:
 
   deploy-job:
     - when:
-        condition:
-          or:
-            - equal: [ master, << pipeline.git.branch >> ]
-            - equal: [ integration, << pipeline.git.branch >> ]
+        or:
+          - equal: [ master, << pipeline.git.branch >> ]
+          - equal: [ integration, << pipeline.git.branch >> ]
         steps:
           - run: echo "building master and integration"
