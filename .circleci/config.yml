@@ -8,17 +8,23 @@ orbs:
   python: circleci/python@2.1.1
 
 workflows:
+  jira-workflow:
+    when:
+      or:
+        - equal: [ sandbox, << pipeline.git.branch >> ]
+        - equal: [ jira-102, << pipeline.git.branch >> ]
+    jobs:
+      - build-and-test-job
+
   sample-workflow:  # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     # For more details on extending your workflow, see the configuration docs: https://circleci.com/docs/2.0/configuration-reference/#workflows
+    when:
+      or:
+        - equal: [ master, << pipeline.git.branch >> ]
+        - equal: [ integration, << pipeline.git.branch >> ]
     jobs:
       - build-and-test-job:
-          filters:
-            branches:
-              only:
-                - master
-                - integration
-                - jira-102
       - deploy-job
 
 jobs:
@@ -53,9 +59,5 @@ jobs:
           command: pytest tests/
 
   deploy-job:
-    - when:
-        or:
-          - equal: [ master, << pipeline.git.branch >> ]
-          - equal: [ integration, << pipeline.git.branch >> ]
-        steps:
-          - run: echo "building master and integration"
+    steps:
+      - echo "I would deploy here"
