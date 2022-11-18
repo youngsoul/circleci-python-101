@@ -14,3 +14,6 @@ def test_to_lower():
 
 def test_to_lower2():
     assert "foobar" == to_lower("FOOBar")
+
+def test_broken():
+    assert "borked" == to_lower("BROKEN")
