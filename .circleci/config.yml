@@ -62,4 +62,4 @@ jobs:
     docker:
       - image: cimg/python:3.10.5
     steps:
-      - echo "I would deploy here"
+      - run: echo "I would deploy here"
