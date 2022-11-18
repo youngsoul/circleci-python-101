@@ -8,3 +8,6 @@ def test_utc1():
 
 def test_to_lower():
     assert "foobar" == to_lower("FooBar")
+
+def test_to_lower2():
+    assert "foobar" == to_lower("FOOBar")
